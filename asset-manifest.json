@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/react-intro/static/css/main.5f361e03.chunk.css",
-    "main.js": "/react-intro/static/js/main.37dd7ee2.chunk.js",
-    "main.js.map": "/react-intro/static/js/main.37dd7ee2.chunk.js.map",
-    "runtime-main.js": "/react-intro/static/js/runtime-main.b9203404.js",
-    "runtime-main.js.map": "/react-intro/static/js/runtime-main.b9203404.js.map",
-    "static/js/2.6f871e01.chunk.js": "/react-intro/static/js/2.6f871e01.chunk.js",
-    "static/js/2.6f871e01.chunk.js.map": "/react-intro/static/js/2.6f871e01.chunk.js.map",
-    "index.html": "/react-intro/index.html",
-    "precache-manifest.d31201b5ab6507806f67040b0607cb7a.js": "/react-intro/precache-manifest.d31201b5ab6507806f67040b0607cb7a.js",
-    "service-worker.js": "/react-intro/service-worker.js",
-    "static/css/main.5f361e03.chunk.css.map": "/react-intro/static/css/main.5f361e03.chunk.css.map",
-    "static/js/2.6f871e01.chunk.js.LICENSE.txt": "/react-intro/static/js/2.6f871e01.chunk.js.LICENSE.txt",
-    "static/media/logo.svg": "/react-intro/static/media/logo.5d5d9eef.svg"
+    "main.css": "/intro/static/css/main.5f361e03.chunk.css",
+    "main.js": "/intro/static/js/main.933f84f1.chunk.js",
+    "main.js.map": "/intro/static/js/main.933f84f1.chunk.js.map",
+    "runtime-main.js": "/intro/static/js/runtime-main.0f11fbf8.js",
+    "runtime-main.js.map": "/intro/static/js/runtime-main.0f11fbf8.js.map",
+    "static/js/2.6f871e01.chunk.js": "/intro/static/js/2.6f871e01.chunk.js",
+    "static/js/2.6f871e01.chunk.js.map": "/intro/static/js/2.6f871e01.chunk.js.map",
+    "index.html": "/intro/index.html",
+    "precache-manifest.61dbb6ea99160cd222262827318043aa.js": "/intro/precache-manifest.61dbb6ea99160cd222262827318043aa.js",
+    "service-worker.js": "/intro/service-worker.js",
+    "static/css/main.5f361e03.chunk.css.map": "/intro/static/css/main.5f361e03.chunk.css.map",
+    "static/js/2.6f871e01.chunk.js.LICENSE.txt": "/intro/static/js/2.6f871e01.chunk.js.LICENSE.txt",
+    "static/media/logo.svg": "/intro/static/media/logo.5d5d9eef.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.b9203404.js",
+    "static/js/runtime-main.0f11fbf8.js",
     "static/js/2.6f871e01.chunk.js",
     "static/css/main.5f361e03.chunk.css",
-    "static/js/main.37dd7ee2.chunk.js"
+    "static/js/main.933f84f1.chunk.js"
   ]
 }
