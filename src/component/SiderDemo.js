@@ -7,11 +7,21 @@ import {
   TeamOutlined,
   UserOutlined,
 } from '@ant-design/icons';
+import { Typography } from 'antd';
+import 'whatwg-fetch';
 
+const { Title } = Typography;
 const { Header, Content, Footer, Sider } = Layout;
 const { SubMenu } = Menu;
 
 class SiderDemo extends React.Component {
+  constructor(){
+		super(...arguments);
+		this.state = {
+			proejct_list:[]
+		};
+  }
+  
   state = {
     collapsed: false,
   };
@@ -21,30 +31,59 @@ class SiderDemo extends React.Component {
     this.setState({ collapsed });
   };
 
+  componentDidMount(){
+		fetch('http://127.0.0.1:3001/projects',{
+			method: 'get',
+			dataType: 'json',
+			headers:{
+			'Accept': 'application/json',
+			'Content-Type': 'application/json'
+		}
+		})
+		.then((response) => response.json())
+		.then((responseData) => {
+			this.setState({proejct_list: responseData});
+		})
+		.catch((error)=>{
+			console.log('Error fetching project',error);
+		});
+	}
+
   render() {
+    let proejct_list = this.state.proejct_list.map( (projects) => {
+			return <Project
+					name={projects.name}
+					id={projects.id}
+					description={projects.description}
+					{...projects}/>
+		});
+
     return (
       <Layout style={{ minHeight: '100vh' }}>
-        <Sider collapsible collapsed={this.state.collapsed} onCollapse={this.onCollapse}>
-          <div className="logo" />
-          <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
-            <Menu.Item key="1" icon={<PieChartOutlined />}>
-              Option 1
-            </Menu.Item>
-            <Menu.Item key="2" icon={<DesktopOutlined />}>
-              Option 2
-            </Menu.Item>
-            <SubMenu key="sub1" icon={<UserOutlined />} title="User">
-              <Menu.Item key="3">Tom</Menu.Item>
-              <Menu.Item key="4">Bill</Menu.Item>
-              <Menu.Item key="5">Alex</Menu.Item>
-            </SubMenu>
-            <SubMenu key="sub2" icon={<TeamOutlined />} title="Team">
-              <Menu.Item key="6">Team 1</Menu.Item>
-              <Menu.Item key="8">Team 2</Menu.Item>
-            </SubMenu>
-            <Menu.Item key="9" icon={<FileOutlined />} />
-          </Menu>
-        </Sider>
+        <div style={{ width: 300 }}>
+          <Sider collapsible collapsed={this.state.collapsed} onCollapse={this.onCollapse}>
+            <div className="logo" >
+              <Title style={{margin: 30}} >W</Title>
+            </div>
+            <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
+              <SubMenu key="sub1" title="ABOUT">
+                <Menu.Item key="1">Skills</Menu.Item>
+                <Menu.Item key="2">Educations</Menu.Item>
+                <Menu.Item key="3">Careers</Menu.Item>
+              </SubMenu>
+              <Menu.Item key="4" >
+                WORKS
+              </Menu.Item>
+              <SubMenu key="sub3" title="Wlog">
+                <Menu.Item key="5">개발 일지</Menu.Item>
+                <Menu.Item key="6">개발 공부</Menu.Item>
+              </SubMenu>
+              <Menu.Item key="7" >
+                CONTACT
+              </Menu.Item>
+            </Menu>
+          </Sider>
+        </div>
         <Layout className="site-layout">
           <Header className="site-layout-background" style={{ padding: 0 }} />
           <Content style={{ margin: '0 16px' }}>
@@ -53,7 +92,9 @@ class SiderDemo extends React.Component {
               <Breadcrumb.Item>Bill</Breadcrumb.Item>
             </Breadcrumb>
             <div className="site-layout-background" style={{ padding: 24, minHeight: 360 }}>
-              Bill is a cat.
+              <ul>
+                {proejct_list}
+              </ul>
             </div>
           </Content>
           <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>
@@ -61,6 +102,16 @@ class SiderDemo extends React.Component {
       </Layout>
     );
   }
+}
+
+class Project extends React.Component {
+	render() {
+		return (
+			<li>
+				{this.props.name}, id is {this.props.id}. description : {this.props.description}
+			</li>
+		);
+	}
 }
 
 
